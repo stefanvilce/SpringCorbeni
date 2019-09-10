@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Login Administration Content'"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description"  th:attr="content='Login to administration of your content'">    
+    <link rel="stylesheet" href="/assets/css/main.css" />   
+</head>
+<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1><a href="/admin/">My Holiday Admin</a></h1>
+					<nav id="nav">
+						<ul>
+						 <li th:if="${userSession == 'loggedin'}"><a th:text="'Log out'" href="/admin/logout"></a></li>
+						 <li th:unless="${userSession == 'loggedin'}"><a th:text="'Login'" href="/admin/"></a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<header>
+						<h2 th:text="'Corbeni Admin'"></h2>
+					</header>
+					<div style="margin: 0 auto;">
+					<div class="row" style="margin: 0 auto;">
+						<div class="col-6 col-12-narrower"  style="margin: 0 auto;">
+							<section class="box special">
+								<h4 th:if="${Logout}" th:text="${Logout}"></h4>	
+								<h4 th:text="${Logat}"></h4>								
+								<form th:unless="${userSession == 'loggedin'}" action="" method="post" id="loginForm">
+									<h3>Login Form</h3>
+									<div class="col-6 col-12-mobilep">
+										<input type="text" name="username" id="username" value="" placeholder="Username" />
+									</div>
+									<div class="col-6 col-12-mobilep">
+										<input type="password" name="password" id="password" value="" placeholder="Password" />
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><input type="submit" value="Login" /></li>
+											<li><input type="reset" value="Cancel" class="alt" /></li>
+										</ul>
+									</div>
+								</form>
+							</section>
+						</div>						
+					</div>
+					</div>
+
+				
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2019, irisoft.com.ro. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+</body>
+</html>
