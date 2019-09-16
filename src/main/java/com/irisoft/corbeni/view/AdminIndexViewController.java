@@ -27,7 +27,6 @@ import com.irisoft.corbeni.controller.Helpers;
 import com.irisoft.corbeni.model.User;
 import com.irisoft.corbeni.service.IUserService;
 
-@SuppressWarnings("unused")
 @Controller
 @RequestMapping("admin")
 public class AdminIndexViewController {
@@ -37,13 +36,6 @@ public class AdminIndexViewController {
 
     @GetMapping("/")
     public String adminLogin(HttpSession session, Model model) {
-    	/*HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-        RestTemplate restTemplate = new RestTemplate();
-    	String url = "http://localhost:8080/page/en";
-        HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-        ResponseEntity<Page> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Page.class, 1);
-        Page page = responseEntity.getBody();*/    	
         model.addAttribute("titleUpHome", "My next holiday");
         model.addAttribute("subtitleUpHome", "Here I would like travel soon. As soon as possible");
         model.addAttribute("userSession", session.getAttribute("userSession"));
@@ -90,23 +82,20 @@ public class AdminIndexViewController {
     	return "redirect:/admin/";
     }
     
-    
-    //functia asta trebuie mutata in proriul fisier
+
     @GetMapping("/pages")
     public String adminPages(HttpSession session, Model model) {
     	if(session.getAttribute("userSession") == null) {
-    		//partea asta trebuie si ea ca functie de verificare inainte de apelarea acestei functii. Dar o lasam deocamdata aici.
     		return "redirect:/admin/";
     	}
-    	model.addAttribute("titleUpHome", "My next holiday");
-    	model.addAttribute("subtitleUpHome", "Here I would like travel soon. As soon as possible");
+    	model.addAttribute("titleUpHome", "CMS Corbeni");
+    	model.addAttribute("subtitleUpHome", "Administration CMS");
     	model.addAttribute("title", "The list of pages");        
-    	model.addAttribute("subtitle", "My Holidays");
+    	model.addAttribute("subtitle", "Corbeni");
     	model.addAttribute("shortDescription", "This is going to be the list with all pages which will be administrated here.");
-    	model.addAttribute("content", "revenim.....");
+    	model.addAttribute("content", "... soon ...");
     	model.addAttribute("userSession", session.getAttribute("userSession"));
 		model.addAttribute("username", session.getAttribute("username"));
     	return "admin/admin_pages";
     }
-
 }

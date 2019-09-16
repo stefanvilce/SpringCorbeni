@@ -61,18 +61,7 @@ public class IndexController {
         Page[] pages = responseEntity.getBody();
         return pages;
     }
-    /*
-    private Image[] theImages(Integer pagesId) {	// bucata asta nu o folosesc aici.
-    	HttpHeaders headers = new HttpHeaders();
-    	headers.setContentType(MediaType.APPLICATION_JSON);
-        RestTemplate restTemplate = new RestTemplate();
-    	String url = "http://localhost:8080/images/" + pagesId.toString();
-        HttpEntity<String> requestEntity = new HttpEntity<String>(headers);
-        ResponseEntity<Image[]> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Image[].class);
-        Image[] images = responseEntity.getBody();
-    	return images;
-    }*/
-     
+
     private String imagePrincipal(Integer pagesId){
     	HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);

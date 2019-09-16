@@ -31,11 +31,6 @@ public class PageService implements IPageService {
 	public boolean addPage(Page page) {
 		// TODO Auto-generated method stub
 		return false;
-		
-		//Si aici am pus asta care vine, vine, vine . . . . 
-		// Scriu aici ca sa se vada ca scriu dar nu am nimic de facut, de fapt......
-		
-		
 	}
 
 	@Override

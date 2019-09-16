@@ -21,10 +21,7 @@ public class PageDAO implements IPageDAO {
 		String sql = "SELECT pages.id, pagescontent.pagesId, pagescontent.title, pagescontent.subtitle, pagescontent.shortDescription, pagescontent.content, pagescontent.lang, "
 				+ "				pagescontent.category, pagescontent.published, pagescontent.publishedAt, pagescontent.modifiedAt "
 				+ "				FROM pages, pagescontent "
-				+ "				WHERE pages.id=pagescontent.pagesId AND pages.id=? AND pagescontent.lang=? "; //aici nu intreb daca e si publicata, 
-		//																										pentru ca aceasta interogare o sa o folosesc in administrare, 
-		//																										unde trebuie sa pot sa ii dau Publish sau Unpublish
-		
+				+ "				WHERE pages.id=pagescontent.pagesId AND pages.id=? AND pagescontent.lang=? ";
 		RowMapper<Page> rowMapper = new BeanPropertyRowMapper<Page>(Page.class);
 		Page page = jdbcTemplate.queryForObject(sql, rowMapper, id, lang);
 		return page;
@@ -35,7 +32,7 @@ public class PageDAO implements IPageDAO {
 				+ "				pagescontent.shortDescription, pagescontent.content, pagescontent.lang, "
 				+ "				pagescontent.category, pagescontent.published, pagescontent.publishedAt, pagescontent.modifiedAt "
 				+ "				FROM pages, pagescontent "
-				+ "				WHERE pages.id=pagescontent.pagesId AND pagescontent.published LIKE 'Yes' ORDER BY id DESC"; //trebuie sa introduc si limba aici
+				+ "				WHERE pages.id=pagescontent.pagesId AND pagescontent.published LIKE 'Yes' ORDER BY id DESC";
 		RowMapper<Page> rowMapper = new PageRowMapper();
 		return this.jdbcTemplate.query(sql, rowMapper);
 	}
