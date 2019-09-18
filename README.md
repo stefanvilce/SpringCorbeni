@@ -1,2 +1,2 @@
 # SpringCorbeni
-Under construction SpringBoot Application, Java, MySQL, JDBC
+Under construction SpringBoot CRUD Application, Java, MySQL, JDBC, REST/Json.
